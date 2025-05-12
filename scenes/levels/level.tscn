@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://dltm2m3ltyxsv"]
+
+[ext_resource type="Texture2D" uid="uid://bhqus72kjdqy8" path="res://assets/sprites/bg.png" id="1_bovvr"]
+[ext_resource type="Texture2D" uid="uid://dx75fev0bi6hx" path="res://assets/sprites/ground.png" id="2_b2cq8"]
+[ext_resource type="PackedScene" uid="uid://dsp34dyk873qo" path="res://scenes/crate/crate.tscn" id="3_b2cq8"]
+[ext_resource type="PackedScene" uid="uid://b6bd3np2kst71" path="res://scenes/player/player.tscn" id="4_xb4v1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xb4v1"]
+size = Vector2(2400, 162)
+
+[node name="Level" type="Node2D"]
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Environment"]
+position = Vector2(962, 539)
+texture = ExtResource("1_bovvr")
+metadata/_edit_lock_ = true
+
+[node name="Background2" type="Sprite2D" parent="Environment"]
+position = Vector2(3362, 539)
+texture = ExtResource("1_bovvr")
+metadata/_edit_lock_ = true
+
+[node name="Ground" type="StaticBody2D" parent="Environment"]
+position = Vector2(962, 1096)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Ground"]
+texture = ExtResource("2_b2cq8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Ground"]
+shape = SubResource("RectangleShape2D_xb4v1")
+
+[node name="Ground2" type="StaticBody2D" parent="Environment"]
+position = Vector2(3362, 1096)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Ground2"]
+texture = ExtResource("2_b2cq8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Ground2"]
+shape = SubResource("RectangleShape2D_xb4v1")
+
+[node name="Crate" parent="." instance=ExtResource("3_b2cq8")]
+position = Vector2(1614, 960)
+
+[node name="Player" parent="." instance=ExtResource("4_xb4v1")]
+position = Vector2(405, 220)

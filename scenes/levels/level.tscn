@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dltm2m3ltyxsv"]
+[gd_scene load_steps=7 format=3 uid="uid://dltm2m3ltyxsv"]
 
 [ext_resource type="Texture2D" uid="uid://bhqus72kjdqy8" path="res://assets/sprites/bg.png" id="1_bovvr"]
 [ext_resource type="Texture2D" uid="uid://dx75fev0bi6hx" path="res://assets/sprites/ground.png" id="2_b2cq8"]
 [ext_resource type="PackedScene" uid="uid://dsp34dyk873qo" path="res://scenes/crate/crate.tscn" id="3_b2cq8"]
-[ext_resource type="PackedScene" uid="uid://b6bd3np2kst71" path="res://scenes/player/player.tscn" id="4_xb4v1"]
+[ext_resource type="Script" uid="uid://c12kybio4qigr" path="res://scenes/levels/player_spawner.gd" id="4_xb4v1"]
+[ext_resource type="PackedScene" uid="uid://b6bd3np2kst71" path="res://scenes/player/player.tscn" id="5_urvlt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xb4v1"]
 size = Vector2(2400, 162)
@@ -43,7 +44,9 @@ texture = ExtResource("2_b2cq8")
 shape = SubResource("RectangleShape2D_xb4v1")
 
 [node name="Crate" parent="." instance=ExtResource("3_b2cq8")]
-position = Vector2(1614, 960)
+position = Vector2(1530, 479)
 
-[node name="Player" parent="." instance=ExtResource("4_xb4v1")]
-position = Vector2(405, 220)
+[node name="PlayerSpawner" type="Marker2D" parent="."]
+position = Vector2(210, 499)
+script = ExtResource("4_xb4v1")
+player_scene = ExtResource("5_urvlt")

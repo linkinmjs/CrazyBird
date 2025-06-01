@@ -25,7 +25,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4a83h"]
-size = Vector2(57, 69)
+size = Vector2(58, 70)
 
 [node name="Enemy" type="RigidBody2D"]
 metadata/_edit_group_ = true
@@ -34,8 +34,9 @@ metadata/_edit_group_ = true
 sprite_frames = SubResource("SpriteFrames_tjssy")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.721549
+frame = 1
+frame_progress = 0.119884
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 4.5)
+position = Vector2(-1, 4)
 shape = SubResource("RectangleShape2D_4a83h")
